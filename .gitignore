@@ -1,0 +1,27 @@
+.htaccess
+*.csv
+*.txt
+*.log
+/sitemap*.xml
+*.zip
+*.gz
+credentials.json
+token.json
+/sitemap_control.json
+
+# временные файлы(картинки/иконки)
+tmp/
+
+# PHPStorm
+/.idea/
+
+# Mac OS
+.DS_Store
+
+# bitrix
+/bitrix/
+/upload/
+
+vendor/
+/a_test/
+/xml/
