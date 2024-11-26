@@ -9,6 +9,9 @@ $APPLICATION->SetTitle("Home works");
     <li>
         <b><a href="2.php">Отладка и логирование</a></b>
     </li>
+    <li>
+        <b><a href="3.php">Связывание моделей</a></b>
+    </li>
 </ol>
 
 <?php
