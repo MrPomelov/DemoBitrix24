@@ -1,15 +1,19 @@
 <?php
-use Bitrix\Main\Diag\Debug;
-use Bitrix\Main\Loader;
-use Bitrix\Iblock\ElementTable;
-use Bitrix\Main\Application;
-use Bitrix\Crm\DealTable;
+// use Bitrix\Main\Diag\Debug;
+// use Bitrix\Main\Loader;
+ use Bitrix\Iblock\ElementTable;
+ use \Bitrix\Iblock\Elements;
+// use Bitrix\Main\Application;
+// use Bitrix\Crm\DealTable;
 
-use Learning\Diagnostic\Helper;
+// use Learning\Diagnostic\Helper;
+
+use Models\Lists\DoctorsPropertyValuesTable as DoctorsTable;
+use Models\Lists\ProceduresPropertyValuesTable as ProceduresTable;
 
 require $_SERVER['DOCUMENT_ROOT'].'/bitrix/header.php';
 $APPLICATION->SetTitle("Home work | second-lesson");
-Loader::includeModule('iblock');
+//Loader::includeModule('iblock');
 global $USER;
 ?>
 <style>
@@ -20,7 +24,7 @@ global $USER;
         color:orange;
     }
 </style>
-
+<?/*
 <h2>Описание/Пошаговая инструкция выполнения домашнего задания:</h2>
 <ol>
     <li>создать 2 списка с врачами и процедурами которые они выполняют;</li>
@@ -34,5 +38,45 @@ global $USER;
     <li></li>
     <li></li>
 </ol>
+*/?>
+<?php 
 
+    $doctors = DoctorsTable::getList([
+        'select' => [
+            'ID' => 'IBLOCK_ELEMENT_ID',
+            'NAME' => 'ELEMENT.NAME',
+            'PROCEDURES' => 'PROCEDURES',
+            'PROCEDURES_DATA_'=>'PROCEDURES_DATA',
+        ]
+    ])->fetchAll();
+
+    echo '<pre>';
+    print_r($doctors);
+    echo '</pre>';
+
+    $doctorsNew = \Bitrix\Iblock\Elements\ElementdoctorsTable::getList([
+        'select' => [
+            'ID',
+            'NAME',
+            'PROCEDURES.ELEMENT'
+        ],
+        'filter' => [
+            //'ID' => $doctorID,
+            'ACTIVE' => 'Y'
+        ]
+    ])->fetchCollection();
+
+    foreach ($doctorsNew as $doctor){
+        echo '<pre>';
+        print_r($doctor->get('NAME'));
+        echo '</pre>';
+
+        foreach ($doctor->getProcedures()->getAll() as $prItem){
+            echo '<pre>';
+            print_r($prItem->getId().' - '.$prItem->getElement()->getName());
+            echo '</pre>';
+        }
+    }
+
+?>
 <?php require $_SERVER['DOCUMENT_ROOT'].'/bitrix/footer.php';?>
