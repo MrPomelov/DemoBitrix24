@@ -10,7 +10,7 @@ $APPLICATION->SetTitle("Home works");
         <b><a href="2.php">Отладка и логирование</a></b>
     </li>
     <li>
-        <b><a href="3.php">Связывание моделей</a></b>
+        <b><a href="/homeworks/3/">Связывание моделей</a></b>
     </li>
 </ol>
 

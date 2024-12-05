@@ -1,0 +1,76 @@
+.wrapper{}
+.request-info{
+    padding: 20px;
+    font-size: x-large;
+    border: 2px dashed;
+    text-align: center;
+}
+.request-info__error{
+    color: red;
+    background-color: #fff0f0;
+}
+.request-info__success{
+    color: green;
+    background-color: #00800024;
+}
+.title{}
+.page{}
+.button-container{
+    margin:20px 0;
+}
+.items__list{
+    display: grid;
+    gap: 20px;
+    justify-content: center;
+    align-items: end;
+}
+.items__list .item{
+    text-align:center;
+}
+.item input,
+.item textarea, 
+.item select{
+    width:100%;
+    max-width:100%;
+    padding: 10px;
+}
+.item__image{}
+.item__image img{}
+.detail-container{
+    width:100%;
+    max-width:600px;
+    margin:0 auto;
+}
+.item__property{
+    font-size: larger;
+    padding: 10px 0;
+    font-style: italic;
+    border-bottom: 1px solid #eee;
+}
+.item__property--flex{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.item__property-value{
+    background: grey;
+    color: #fff;
+    padding: 8px;
+    border-radius: 17px;
+    font-size: small;
+}
+.items__list--doctors{
+    grid-template-columns: repeat(5, 1fr);
+}
+.items__list--procedures{
+    justify-content: normal;
+    grid-template-columns: repeat(2, 1fr);
+}
+.items__list--doctors .item__image{}
+.items__list--doctors .item__image img{}
+.items__list--doctors .item__name{}
+
+.items__list--procedurs{}
+.items__list--procedurs .item__image{}
+.items__list--procedurs .item__image img{}
+.items__list--procedurs .item__name{}

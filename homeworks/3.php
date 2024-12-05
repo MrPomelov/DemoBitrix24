@@ -1,8 +1,9 @@
 <?php
 // use Bitrix\Main\Diag\Debug;
 // use Bitrix\Main\Loader;
- use Bitrix\Iblock\ElementTable;
- use \Bitrix\Iblock\Elements;
+use Bitrix\Iblock\ElementTable;
+use Bitrix\Iblock\Elements;
+use Bitrix\Main\Application;
 // use Bitrix\Main\Application;
 // use Bitrix\Crm\DealTable;
 
@@ -41,18 +42,49 @@ global $USER;
 */?>
 <?php 
 
-    $doctors = DoctorsTable::getList([
-        'select' => [
-            'ID' => 'IBLOCK_ELEMENT_ID',
-            'NAME' => 'ELEMENT.NAME',
-            'PROCEDURES' => 'PROCEDURES',
-            'PROCEDURES_DATA_'=>'PROCEDURES_DATA',
-        ]
-    ])->fetchAll();
+    // $doctors = DoctorsTable::getList([
+    //     'select' => [
+    //         'ID' => 'IBLOCK_ELEMENT_ID',
+    //         'NAME' => 'ELEMENT.NAME',
+    //         'PROCEDURES' => 'PROCEDURES',
+    //         'PROCEDURES_DATA_'=>'PROCEDURES_DATA',
+    //     ]
+    // ])->fetchAll();
 
-    echo '<pre>';
-    print_r($doctors);
-    echo '</pre>';
+    // echo '<pre>';
+    // print_r($doctors);
+    // echo '</pre>';
+
+    // Array
+    // (
+    //     [0] => Array
+    //         (
+    //             [ID] => 30
+    //             [NAME] => Коробицына Ксения Николаевна
+    //             [PROCEDURES] => Array
+    //                 (
+    //                     [0] => 36
+    //                     [1] => 33
+    //                     [2] => 37
+    //                     [3] => 34
+    //                 )
+
+    //             [PROCEDURES_DATA_IBLOCK_ELEMENT_ID] => 36
+    //             [PROCEDURES_DATA_COST] => 1500
+    //         )
+
+    //     [1] => Array
+    //     ...
+    $request = Bitrix\Main\Application::getInstance()->getContext()->getRequest();
+    
+    // echo '<pre>request';
+    // print_r($request);
+    // echo '</pre>';
+    $values = $request->getValues();
+    
+    // echo '<pre>values';
+    // print_r($values);
+    // echo '</pre>';
 
     $doctorsNew = \Bitrix\Iblock\Elements\ElementdoctorsTable::getList([
         'select' => [
