@@ -12,6 +12,9 @@ $APPLICATION->SetTitle("Home works");
     <li>
         <b><a href="/homeworks/3/">Связывание моделей</a></b>
     </li>
+    <li>
+        <b><a href="4.php">Модель данных для таблицы БД</a></b>
+    </li>
 </ol>
 
 <?php

@@ -10,12 +10,10 @@ spl_autoload_register(function ($class) {
     $file = __DIR__ . '/' . $file;
     
     if (is_file($file) && file_exists($file)) {
-        echo 'Подключаем файл <br>/n';
-        echo $file;
+        echo '<span style="color:green;">Подключаем файл </span>'. $file . '<br>';
         require_once $file;
     }else{
-        echo 'Не смогли подключить файл <br>/n';
-        echo $file;
+        echo '<span style="color:red;">Не смогли подключить файл </span>'. $file .' <br>';
     }
 });
     

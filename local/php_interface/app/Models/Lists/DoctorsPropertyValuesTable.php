@@ -2,15 +2,31 @@
 
 namespace Models\Lists;
 
+use Bitrix\Main\ORM\Fields\IntegerField;
+use Bitrix\Main\ORM\Fields\StringField;
+use Bitrix\Main\ORM\Fields\TextField;
 use Bitrix\Main\Entity\ReferenceField;
 use Models\AbstractIblockPropertyValuesTable;
 
 class DoctorsPropertyValuesTable extends AbstractIblockPropertyValuesTable
 {
     const IBLOCK_ID = 16;
+    
     public static function getMap(): array
     {
         $map = [
+            'ID' => (new IntegerField('IBLOCK_ELEMENT_ID',
+					[]
+				))->configureTitle('IBLOCK_ELEMENT_ID')
+						->configurePrimary(true)
+						->configureAutocomplete(true)
+			,
+            'POSITION' => array( // Должность
+                'data_type' => 'string',
+                'required' => true,
+                'title' => 'POSITION',
+            ),
+            
             'PROCEDURES_DATA' => new ReferenceField(
                 'PROCEDURES', 
                 ProceduresPropertyValuesTable::class, 
