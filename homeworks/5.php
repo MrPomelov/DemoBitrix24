@@ -44,12 +44,8 @@ global $USER;
 	array(
 		"COMPONENT_TEMPLATE" => ".default",
 		"CURRENCY_CODE" => array(
-			0 => "BYN",
-			1 => "EUR",
-			2 => "RUB",
-			3 => "UAH",
-			4 => "USD",
-			5 => "",
+			0 => "RUB",
+			1 => "",
 		),
 		"CACHE_TYPE" => "A",
 		"CACHE_TIME" => "3600"

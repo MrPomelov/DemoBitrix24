@@ -15,6 +15,12 @@ $APPLICATION->SetTitle("Home works");
     <li>
         <b><a href="4.php">Модель данных для таблицы БД</a></b>
     </li>
+    <li>
+        <b><a href="5.php">Компонент списка таблицы БД</a></b>
+    </li>
+    <li>
+        <b><a href="6.php">Написание своего модуля</a></b>
+    </li>
 </ol>
 
 <?php
