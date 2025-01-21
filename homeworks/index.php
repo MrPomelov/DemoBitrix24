@@ -21,6 +21,9 @@ $APPLICATION->SetTitle("Home works");
     <li>
         <b><a href="6.php">Написание своего модуля</a></b>
     </li>
+    <li>
+        <b><a href="7.php">Создание кастомных полей</a></b>
+    </li>
 </ol>
 
 <?php
