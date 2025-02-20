@@ -18,3 +18,5 @@ $arJsConfig = array(
 foreach ($arJsConfig as $ext => $arExt) { 
 	\CJSCore::RegisterExt($ext, $arExt); 
 }
+
+\Bitrix\Main\UI\Extension::load(['popup', 'crm.currency', 'timeman.custom']);
