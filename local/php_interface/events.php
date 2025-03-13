@@ -10,3 +10,15 @@ $eventManager->AddEventHandler(
         'GetUserTypeDescription',
     ]
 );
+
+// обработчик событий инфоблока
+$eventManager->addEventHandler("iblock", "OnBeforeIBlockElementAdd", ['Events\IblockHandler', 'OnElementBeforeAdd']);
+$eventManager->addEventHandler("iblock", "OnAfterIBlockElementAdd", ['Events\IblockHandler', 'OnElementAfterAdd']);
+$eventManager->addEventHandler("iblock", "OnAfterIBlockElementUpdate", ['Events\IblockHandler', 'OnElementAfterUpdate']);
+$eventManager->addEventHandler("iblock", "OnBeforeIBlockElementDelete", ['Events\IblockHandler', 'OnElementBeforeDelete']);
+
+
+//обработчик событий CRM
+$eventManager->addEventHandler("crm", "OnAfterCrmDealAdd", ['Events\CrmHandler', 'OnAfterDealAdd']);
+$eventManager->addEventHandler("crm", "OnAfterCrmDealUpdate", ['Events\CrmHandler', 'OnAfterDealUpdate']);
+// $eventManager->addEventHandler("crm", "OnBeforeCrmDealDelete", ['Events\CrmHandler', 'OnBeforeDealDelete']);
